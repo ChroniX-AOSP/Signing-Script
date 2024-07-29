@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "This script will generate Android keys for signing builds."
+
 # Define the subject line
 subject='/C=US/ST=California/L=Mountain View/O=Android/OU=Android/CN=Android/emailAddress=android@android.com'
 
@@ -38,12 +40,12 @@ for x in bluetooth media networkstack nfc platform releasekey sdk_sandbox shared
 done
 
 # Create vendor directory for keys
-mkdir -p vendor/lineage-priv
-mv ~/.android-certs vendor/lineage-priv/keys
-echo "PRODUCT_DEFAULT_DEV_CERTIFICATE := vendor/lineage-priv/keys/releasekey" > vendor/lineage-priv/keys/keys.mk
+mkdir -p vendor/tpp-priv
+mv ~/.android-certs vendor/tpp-priv/keys
+echo "PRODUCT_DEFAULT_DEV_CERTIFICATE := vendor/tpp-priv/keys/releasekey" > vendor/tpp-priv/keys/keys.mk
 
 # Create BUILD.bazel file
-cat <<EOF > vendor/lineage-priv/keys/BUILD.bazel
+cat <<EOF > vendor/tpp-priv/keys/BUILD.bazel
 filegroup(
     name = "android_certificate_directory",
     srcs = glob([
@@ -54,6 +56,6 @@ filegroup(
 )
 EOF
 
-echo "Done! Now build as usual. If builds aren't being signed, add '-include vendor/lineage-priv/keys/keys.mk' to your device mk file"
-echo "Make copies of your vendor/lineage-priv folder as it contains your keys!"
+echo "Done! Now build as usual. If builds aren't being signed, add '-include vendor/tpp-priv/keys/keys.mk' to your device mk file"
+echo "Make copies of your vendor/tpp-priv folder or upload it to a private repository as it contains your keys!"
 sleep 3
