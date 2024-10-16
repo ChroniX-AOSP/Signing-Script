@@ -21,6 +21,6 @@ bash <(curl -s https://raw.githubusercontent.com/sajidshahriar72543/Signing-Scri
 ### Prep device tree (for other ROMs)
 In your device tree (or common device tree) add:
 
-`-include vendor/tpp-priv/keys/keys.mk`
+`-include vendor/lineage-priv/keys/keys.mk`
 
 Build as usual!
