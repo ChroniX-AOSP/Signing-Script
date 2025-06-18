@@ -11,7 +11,7 @@ This script only works for password-less keys (DO NOT SET A PASSWORD) *This is d
 1. Run this script in your root build directory
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/sajidshahriar72543/Signing-Script/main/keygen.sh)
+bash <(curl -s https://raw.githubusercontent.com/kibria5/Signing-Script/main/keygen.sh)
 ```
 
 2. Enter info for certificate subject line and confirm
@@ -21,6 +21,6 @@ bash <(curl -s https://raw.githubusercontent.com/sajidshahriar72543/Signing-Scri
 ### Prep device tree (for other ROMs)
 In your device tree (or common device tree) add:
 
-`-include vendor/lineage-priv/keys/keys.mk`
+`-include vendor/clover-priv/keys/keys.mk`
 
 Build as usual!
