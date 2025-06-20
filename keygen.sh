@@ -4,7 +4,7 @@ set -e
 
 echo "This script will generate Android keys for signing builds."
 
-subject='/C=BD/ST=Bangladesh/L=Dhaka/O=kibria5/OU=kibria5/CN=kibria5/emailAddress=mdkibria687@gmail.com'
+subject='/C=BD/ST=India/L=Rajasthan/O=chronix/OU=chronix/CN=chronix/emailAddress=phoniexpaul88@gmail.com'
 
 echo "Using Subject Line:\n$subject"
 
@@ -35,7 +35,7 @@ for key in "${keys[@]}"; do
     ./development/tools/make_key "$certs_dir/$key" "$subject"
 done
 
-vendor_keys_dir="vendor/clover-priv/keys"
+vendor_keys_dir="vendor/after-priv/keys"
 mkdir -p "$vendor_keys_dir"
 mv "$certs_dir" "$vendor_keys_dir"
 
